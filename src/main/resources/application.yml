@@ -1,0 +1,28 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /live/multi/
+  port: 4450
+
+#primary
+spring:
+  primary:
+    datasource:
+      jdbc-url: jdbc:mysql://123.207.253.82:31306/live_db?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: *
+      driver-class-name: com.mysql.jdbc.Driver
+
+  #secondary
+  secondary:
+    datasource:
+      jdbc-url: jdbc:mysql://106.52.158.225:31306/live_db?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false
+      username: ytdb
+      password: *
+      driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    open-in-view: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
